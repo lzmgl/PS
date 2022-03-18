@@ -1,3 +1,7 @@
 import datetime
-d = datetime.datetime.now()
-print(d.year, '-', d.month, '-', d.day, sep='')
+d=datetime.datetime.utcnow() + datetime.timedelta(hours=9)
+y=d.year
+m=d.month
+dd=d.day
+m='{:02d}'.format(m)
+print(f"{y}-{m}-{dd}")
