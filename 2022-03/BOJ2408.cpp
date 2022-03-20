@@ -25,6 +25,6 @@ main() {
                 cout << a;
             }
             
-        } else if (a>c)
+        }
     }
 }
