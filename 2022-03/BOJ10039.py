@@ -1,3 +1,8 @@
 import sys
-scores = [map(int, sys.stdin.readline().strip()) for i in range(5)]
-print(scores)
+scores = []
+for i in range(5):
+    tmp = int(sys.stdin.readline())
+    if tmp<40:
+        tmp=40
+    scores.append(tmp)
+print(int(sum(scores)/len(scores)))
