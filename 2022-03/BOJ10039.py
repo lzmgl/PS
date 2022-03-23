@@ -1,5 +1,4 @@
 import sys
-data=[]
 scores = []
 for i in range(5):
     tmp = int(sys.stdin.readline())
