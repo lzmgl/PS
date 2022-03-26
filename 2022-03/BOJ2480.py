@@ -14,6 +14,7 @@ else :
     else:
         print(1000+B*100)
 '''
+
 *_,a,b,c=sorted(input())
 print(a,b,c)
 print(['1'+b,c])
