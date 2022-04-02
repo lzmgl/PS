@@ -38,6 +38,7 @@ data = [sys.stdin.readline().strip() for i in range(n)]
 strip()은 문자열 맨 앞과 맨 끝의 공백문자를 제거합니다.
 👉 입력
 
+
 안녕안녕
 나는 지수야
 헬륨가스 마셨더니 이렇게됐지
