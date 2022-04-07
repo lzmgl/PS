@@ -1,5 +1,5 @@
 import sys
-a = input()
+a=input()
 b=input()
 c=input()
 if b=='*':
