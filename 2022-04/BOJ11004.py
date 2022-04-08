@@ -14,4 +14,3 @@ for i in range(2,41):
 for _ in range(N):
     n=int(sys.stdin.readline())
     print(zero[n], one[n])
-    
