@@ -1,3 +1,3 @@
 N=int(input())
 for i in range(1,N+1): 
-    print(f'{"*"*i:^{2*N}}')
+    print(' '*(N-i), '*'*((i*2)-1), sep='')
