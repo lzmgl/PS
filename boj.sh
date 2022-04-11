@@ -22,7 +22,7 @@ solution_file="$DIR/2022-04/BOJ$problem_number.py"
 problem_link="https://www.acmicpc.net/problem/$problem_number"
 problem_name=$(curl -s -N "$problem_link" | sed -n "s/^.*<title>\(.*\)<\/title>.*$/\1/p")
 
-echo "# $problem_name" >> "$solution_file"
+echo "# $problem_number번" >> "$solution_file"
 echo "# $problem_link" >> "$solution_file"
 echo "import sys" >> "$solution_file"
 echo "N=int(sys.stdin.readline())" >> "$solution_file"
