@@ -24,6 +24,7 @@ problem_name=$(curl -s -N "$problem_link" | sed -n "s/^.*<title>\(.*\)<\/title>.
 
 echo "# $problem_name" >> "$solution_file"
 echo "# $problem_link" >> "$solution_file"
-
+echo "import sys" >> "$solution_file"
+echo "N=int(sys.stdin.readline())" >> "$solution_file"
 echo "$problem_name"
 echo "$solution_file"
