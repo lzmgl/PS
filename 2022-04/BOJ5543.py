@@ -1,4 +1,4 @@
-# 5543번
+# 5543번 상근날드
 # https://www.acmicpc.net/problem/5543
 import sys
 burger=[]
