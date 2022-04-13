@@ -1,4 +1,4 @@
-# 2460번 지능형기차2
+# 2460번 지능형 기차2
 # https://www.acmicpc.net/problem/2460
 import sys
 people=maxN=0

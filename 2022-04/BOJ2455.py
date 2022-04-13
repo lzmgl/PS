@@ -1,4 +1,4 @@
-# 2455번
+# 2455번 지능형 기차
 # https://www.acmicpc.net/problem/2455
 import sys
 people=maxN=0

@@ -1,3 +1,5 @@
+# 2010번 플러그
+# https://www.acmicpc.net/problem/2010
 import sys
 N=int(sys.stdin.readline())
 tmp=0

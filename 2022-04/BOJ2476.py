@@ -1,3 +1,5 @@
+# 2476번 주사위 게임
+# https://www.acmicpc.net/problem/2476
 import sys
 N=int(sys.stdin.readline())
 ans =0

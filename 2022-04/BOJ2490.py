@@ -1,4 +1,4 @@
-# 2490번
+# 2490번 윷놀이
 # https://www.acmicpc.net/problem/2490
 import sys
 dic={0:'D', 4:'E', 3:'A', 2:'B', 1:'C'}
