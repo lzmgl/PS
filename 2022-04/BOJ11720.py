@@ -1,4 +1,9 @@
 # 11720번
 # https://www.acmicpc.net/problem/11720
 import sys
-N=int(sys.stdin.readline())
+sumN=0
+input()
+N=sys.stdin.readline().rstrip()
+for i in N:
+    sumN+=int(i)
+print(sumN)
