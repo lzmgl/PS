@@ -7,7 +7,8 @@ def file_maker(folder_name, problem_input, problem_title,link):
 # {link}
 import sys, os
     
-sys.stdin = open('{{}}/{folder_name}.txt'.format(os.path.dirname(os.path.realpath(__file__))))'''
+sys.stdin = open('{{}}/{folder_name}.txt'.format(os.path.dirname(os.path.realpath(__file__))))
+N=int(sys.stdin.readline())'''
 
     sol_py = open('./2022-04/{}/{}.py'.format(folder_name,folder_name), 'w')
     sol_py.write(sol_py_content)
@@ -31,7 +32,6 @@ def bojmaker(problem_number):
 
     try:
         os.mkdir('./2022-04/{}'.format(folder_name))
-        os.mkdir('./2022-04/{}/.cph}'.format(folder_name))
     except OSError:
         pass
 
