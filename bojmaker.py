@@ -17,6 +17,8 @@ sys.stdin = open('{{}}/{folder_name}.txt'.format(os.path.dirname(os.path.realpat
     input_text.write(problem_input)
     input_text.close()
 
+    cph_text = open('./2022-04/{}/{}.txt'.format(folder_name,folder_name), 'w')
+    
 def bojmaker(problem_number):
     url = 'https://www.acmicpc.net/problem/'
     link=url+problem_number
@@ -29,6 +31,7 @@ def bojmaker(problem_number):
 
     try:
         os.mkdir('./2022-04/{}'.format(folder_name))
+        os.mkdir('./2022-04/{}/.cph}'.format(folder_name))
     except OSError:
         pass
 
