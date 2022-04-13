@@ -1,13 +1,13 @@
 # 1920번 수 찾기
 # 이진탐색
-# 미해결
+# 존재만 탐색하면 되기때문에 set 사용..
 # https://www.acmicpc.net/problem/1920
 import sys
 N=int(sys.stdin.readline())
-dataN=list(map(int,sys.stdin.readline().rstrip().split()))
+dataN=set(map(int,sys.stdin.readline().rstrip().split()))
 M=int(sys.stdin.readline())
 dataM=list(map(int,sys.stdin.readline().rstrip().split()))
-
+'''
 def binarySearch(v, l, r):
     if l>r or l<0 or r>M-1:
         return 0
@@ -18,6 +18,6 @@ def binarySearch(v, l, r):
         return binarySearch(v, l, mid-1)
     else:
         return binarySearch(v, mid+1, r)
-dataN.sort()
+'''
 for itemM in dataM:
-    print(binarySearch(itemM,0,M-1))
+    print('1' if itemM in dataN else '0')

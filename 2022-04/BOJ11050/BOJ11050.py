@@ -1,4 +1,5 @@
 # 11050번 이항 계수 1
+# 이항계수 동적 계획법 확장성 dp DP dynamic programming
 # https://www.acmicpc.net/problem/11050
 import sys, os
     
