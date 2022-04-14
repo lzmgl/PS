@@ -10,4 +10,4 @@ for i in range(N):
 res=0
 for c, k in data:
     res+=c*k*pow(2,k-1,1000000007)
-print(res)
+print(res%1000000007)
