@@ -1,4 +1,5 @@
 💡 sys.stdin.readline() 사용법
+
 📌한 개의 정수를 입력받을 때
 import sys
 a = int(sys.stdin.readline().rstrip())
