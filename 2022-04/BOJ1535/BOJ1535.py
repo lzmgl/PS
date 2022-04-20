@@ -27,3 +27,4 @@ def knapsack(idx, cap):
     return ret
 
 print(knapsack(0,capacity))
+
