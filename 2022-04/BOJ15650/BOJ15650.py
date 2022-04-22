@@ -5,6 +5,10 @@ from itertools import combinations
 sys.stdin = open('{}/BOJ15650.txt'.format(os.path.dirname(os.path.realpath(__file__))))
 N,M=map(int,sys.stdin.readline().split())
 s=[x for x in range(1, N+1)]
+res = list(combinations(s, M))
+for item in res:
+    print(*item)
+
 '''
 print(s)
 visited=[]
@@ -18,6 +22,3 @@ def DFS(arr, n):
             visited.pop()
 DFS([], M)
 '''
-res = list(combinations(s, M))
-for item in res:
-    print(*item)
