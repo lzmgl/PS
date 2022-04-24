@@ -1,4 +1,5 @@
 # 15591번 MooTube (Silver)
+# BFS 최소신장트리 MST graph defaultdict
 # https://www.acmicpc.net/problem/15591
 import sys, os
 sys.stdin = open('{}/BOJ15591.txt'.format(os.path.dirname(os.path.realpath(__file__))))
