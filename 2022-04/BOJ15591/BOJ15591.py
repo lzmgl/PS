@@ -3,7 +3,6 @@
 import sys, os
 sys.stdin = open('{}/BOJ15591.txt'.format(os.path.dirname(os.path.realpath(__file__))))
 from collections import defaultdict, deque
-
 N, Q=map(int, sys.stdin.readline().split())
 net = defaultdict(list)
 def moo(start_node, k,N , net):
