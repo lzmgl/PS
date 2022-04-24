@@ -8,7 +8,6 @@ s=[x for x in range(1, N+1)]
 res = list(combinations(s, M))
 for item in res:
     print(*item)
-
 '''
 print(s)
 visited=[]
