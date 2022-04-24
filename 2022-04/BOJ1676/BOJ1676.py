@@ -2,7 +2,6 @@
 # https://www.acmicpc.net/problem/1676
 import sys, os
 from math import factorial
-    
 sys.stdin = open('{}/BOJ1676.txt'.format(os.path.dirname(os.path.realpath(__file__))))
 N=int(sys.stdin.readline())
 C=str(factorial(N))[::-1]
