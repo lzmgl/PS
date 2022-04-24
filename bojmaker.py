@@ -6,7 +6,6 @@ def file_maker(folder_name, problem_input, problem_title,link):
     sol_py_content = f'''# {folder_name[3:]}번 {problem_title}
 # {link}
 import sys, os
-    
 sys.stdin = open('{{}}/{folder_name}.txt'.format(os.path.dirname(os.path.realpath(__file__))))
 N=int(sys.stdin.readline())'''
 
