@@ -16,6 +16,7 @@ def DFS(arr, n):
     if len(visited)==n:
         print(visited)
     else:
+        
         for i in range(1, n+1):
             visited.append(i)
             DFS()
