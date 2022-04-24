@@ -1,7 +1,10 @@
 from calendar import month_abbr
+import datetime
 import os, sys, argparse, requests
 from bs4 import BeautifulSoup
-month_dir = '2022-04'
+d=datetime.datetime.utcnow()
+m='{:02d}'.format(d.month)
+month_dir = (f"{d.year}-{m}")
 
 
 def file_maker(folder_name, problem_input, problem_title,link):
@@ -28,7 +31,11 @@ def bojmaker(problem_number):
     problem_title = bs_object.find('span', id='problem_title').text
     problem_input = bs_object.find('pre', id='sample-input-1').text
     folder_name = 'BOJ'+str(problem_number)
-
+    try:
+        os.mkdir('./{}'.format(month_dir))
+        print("year, month = {}".format(month_dir))
+    except :
+        print("year, month = {}".format(month_dir))
     try:
         os.mkdir('./{}/{}'.format(month_dir,folder_name))
     except:
