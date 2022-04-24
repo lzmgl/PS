@@ -1,5 +1,7 @@
+from calendar import month_abbr
 import os, sys, argparse, requests
 from bs4 import BeautifulSoup
+month_dir = '2022-04'
 
 
 def file_maker(folder_name, problem_input, problem_title,link):
@@ -9,11 +11,11 @@ import sys, os
 sys.stdin = open('{{}}/{folder_name}.txt'.format(os.path.dirname(os.path.realpath(__file__))))
 N=int(sys.stdin.readline())'''
 
-    sol_py = open('./2022-04/{}/{}.py'.format(folder_name,folder_name), 'w')
+    sol_py = open('./{}/{}/{}.py'.format(month_dir,folder_name,folder_name), 'w')
     sol_py.write(sol_py_content)
     sol_py.close()
     
-    input_text = open('./2022-04/{}/{}.txt'.format(folder_name,folder_name), 'w')
+    input_text = open('./{}/{}/{}.txt'.format(month_dir,folder_name,folder_name), 'w')
     input_text.write(problem_input)
     input_text.close()
     
@@ -28,9 +30,10 @@ def bojmaker(problem_number):
     folder_name = 'BOJ'+str(problem_number)
 
     try:
-        os.mkdir('./2022-04/{}'.format(folder_name))
-    except OSError:
-        pass
+        os.mkdir('./{}/{}'.format(month_dir,folder_name))
+    except:
+        print("Already exist")
+        exit()
 
 
     

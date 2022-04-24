@@ -1,6 +1,7 @@
 # 1003번 피보나치 함수
 # https://www.acmicpc.net/problem/1003
-import sys
+import sys, os
+sys.stdin = open('{}/BOJ1003.txt'.format(os.path.dirname(os.path.realpath(__file__))))
 N=int(sys.stdin.readline())
 zero=[]
 one=[]
