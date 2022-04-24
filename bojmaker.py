@@ -1,3 +1,10 @@
+    # original code : https://github.com/6Soo/BOJ_maker
+    # name="bojmaker",
+    # version="1.3",
+    # license='MIT',
+    # author="6Soo",
+    # author_email="kkokko-hero@hanmail.net",
+    # description="Setting up bothering BOJ problems all at once.",
 from calendar import month_abbr
 import datetime
 import os, sys, argparse, requests
