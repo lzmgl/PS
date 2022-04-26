@@ -1,5 +1,5 @@
 # 2108번 통계학
-# Counter 최빈값
+# Counter 최빈값 파이썬
 # https://www.acmicpc.net/problem/2108
 import sys, os
 sys.stdin = open('{}/BOJ2108.txt'.format(os.path.dirname(os.path.realpath(__file__))))
