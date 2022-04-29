@@ -1,4 +1,5 @@
 # 4949번 균형잡힌 세상
+# stack 스택 입력개행
 # https://www.acmicpc.net/problem/4949
 import sys, os
 sys.stdin = open('{}/BOJ4949.txt'.format(os.path.dirname(os.path.realpath(__file__))))
