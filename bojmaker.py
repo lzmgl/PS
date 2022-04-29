@@ -34,7 +34,6 @@ def bojmaker(problem_number):
     link=url+problem_number
     html = requests.get('{}{}'.format(url, problem_number), headers={'User-Agent': 'Mozilla/5.0'}).content
     bs_object = BeautifulSoup(html, 'html.parser')
-
     problem_title = bs_object.find('span', id='problem_title').text
     problem_input = bs_object.find('pre', id='sample-input-1').text
     folder_name = 'BOJ'+str(problem_number)
