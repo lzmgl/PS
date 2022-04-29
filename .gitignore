@@ -1,4 +1,5 @@
 .vscode
+.cph
 *.exe
 .prob
 .pyc
