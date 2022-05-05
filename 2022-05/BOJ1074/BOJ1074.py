@@ -3,9 +3,6 @@
 import sys, os
 sys.stdin = open('{}/BOJ1074.txt'.format(os.path.dirname(os.path.realpath(__file__))))
 N, r, c=map(int,sys.stdin.readline().split())
-# Z = [[0]*M for _ in range(M)]
-dx=0
-dy=0
 cnt=0
 while N>0:
     rag = pow(2, 2*(N-1))
@@ -36,17 +33,3 @@ else:
     else:
         cnt+=3
 print(cnt)
-            
-
-# def Zsearch(N, root):
-#     if N == 1:
-#         cnt=0
-#         for i in range(root, root+2):
-#             for j in range(root, root+2):
-#                 Z[i][j]=cnt
-#                 cnt+=1
-#     else:
-#         tmp = root//2
-#         for i in range(root//2)
-#         Zsearch(N-1, root)
-
