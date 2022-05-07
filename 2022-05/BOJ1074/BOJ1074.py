@@ -1,4 +1,4 @@
-# 1074번 Z
+# 1074번 Z 분할정복
 # https://www.acmicpc.net/problem/1074
 import sys, os
 sys.stdin = open('{}/BOJ1074.txt'.format(os.path.dirname(os.path.realpath(__file__))))
