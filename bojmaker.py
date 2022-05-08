@@ -37,6 +37,14 @@ def bojmaker(problem_number):
     problem_title = bs_object.find('span', id='problem_title').text
     problem_input = bs_object.find('pre', id='sample-input-1').text
     folder_name = 'BOJ'+str(problem_number)
+
+    for (path, dir, files) in os.walk("./"):
+        for filename in files:
+            ext = os.path.splitext(filename)[0]
+            if ext == folder_name:
+                print("%s/%s" % (path, filename))
+                print("Already exist")
+                exit()
     try:
         os.mkdir('./{}'.format(month_dir))
         print("year, month = {}".format(month_dir))
@@ -44,14 +52,14 @@ def bojmaker(problem_number):
         print("year, month = {}".format(month_dir))
     try:
         os.mkdir('./{}/{}'.format(month_dir,folder_name))
+        file_maker(folder_name, problem_input, problem_title,link)
     except:
         print("Already exist")
         exit()
 
 
     
-    file_maker(folder_name, problem_input, problem_title,link)
-
+    
     print('\n-------------------\n{}\n\nSet up completed\n-------------------\n{}{}\n'.format(folder_name, url, problem_number))
 
 
