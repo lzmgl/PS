@@ -6,28 +6,38 @@ import heapq
 def Insert(q, num):
     heapq.heappush(q, num)
 def Delete(q, num):
-    if num==1:
-        maxV = max(q)
-        q.remove(maxV)
-    elif num==-1:
-        heapq.heappop(q)
+    heapq.heappop(q)
 
 T=int(sys.stdin.readline())
 for _ in range(T):
     k=int(sys.stdin.readline())
-    q = []
-    for _ in range(k):
+    visited=[False]*k
+    minq, maxq = [], []
+    for j in range(k):
         p, num = sys.stdin.readline().split()
         num=int(num)
         if p == 'I':
-            Insert(q, num)
+            Insert(minq, (num, j))
+            Insert(maxq, (-num, j))
+            visited[j]=True
         else:
-            try:
-                Delete(q, num)
-            except:
-                continue
-    if q:
-        print(max(q), q[0])
-    else:
+            if num==1:
+                while maxq and not visited[maxq[0][1]]:
+                    heapq.heappop(maxq)
+                if maxq:
+                    visited[maxq[0][1]]=False
+                    heapq.heappop(maxq)
+            else:
+                while minq and not visited[minq[0][1]]:
+                    heapq.heappop(minq)
+                if minq:
+                    visited[minq[0][1]]=False
+                    heapq.heappop(minq)
+    while minq and not visited[minq[0][1]]:
+        heapq.heappop(minq)
+    while maxq and not visited[maxq[0][1]]:
+        heapq.heappop(maxq)
+    if not minq or not maxq:
         print("EMPTY")
-        
+    else:
+        print(-maxq[0][0], minq[0][0])
