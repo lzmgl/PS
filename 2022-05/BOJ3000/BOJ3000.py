@@ -12,3 +12,9 @@ for _ in range(N):
     data.append([x,y])
     xspot[x]+=1
     yspot[y]+=1
+
+res=0
+for i in range(N):
+    if xspot[data[i][0]]>1 and yspot[data[i][1]]>1:
+        res+=(xspot[data[i][0]]-1)*(yspot[data[i][1]]-1)
+print(res)
