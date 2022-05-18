@@ -1,4 +1,4 @@
-# 1357�� ������ ����
+# 1357번 뒤집힌 덧셈
 # https://www.acmicpc.net/problem/1357
 import sys, os
 sys.stdin = open('{}/BOJ1357.txt'.format(os.path.dirname(os.path.realpath(__file__))))
