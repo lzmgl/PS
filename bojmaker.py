@@ -15,17 +15,18 @@ month_dir = (f"{d.year}-{m}")
 
 
 def file_maker(folder_name, problem_input, problem_title,link):
+    print(problem_title)
     sol_py_content = f'''# {folder_name[3:]}번 {problem_title}
 # {link}
 import sys, os
 sys.stdin = open('{{}}/{folder_name}.txt'.format(os.path.dirname(os.path.realpath(__file__))))
 N=int(sys.stdin.readline())'''
 
-    sol_py = open('./{}/{}/{}.py'.format(month_dir,folder_name,folder_name), 'w')
+    sol_py = open('./{}/{}/{}.py'.format(month_dir,folder_name,folder_name), 'w', encoding='utf-8')
     sol_py.write(sol_py_content)
     sol_py.close()
     
-    input_text = open('./{}/{}/{}.txt'.format(month_dir,folder_name,folder_name), 'w')
+    input_text = open('./{}/{}/{}.txt'.format(month_dir,folder_name,folder_name), 'w', encoding='utf-8')
     input_text.write(problem_input)
     input_text.close()
     
