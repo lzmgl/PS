@@ -1,7 +1,7 @@
-# 18500번 미네랄 2
-# https://www.acmicpc.net/problem/18500
+# 2933번 미네랄
+# https://www.acmicpc.net/problem/2933
 import sys, os
-sys.stdin = open('{}/BOJ18500.txt'.format(os.path.dirname(os.path.realpath(__file__))))
+sys.stdin = open('{}/BOJ2933.txt'.format(os.path.dirname(os.path.realpath(__file__))))
 from collections import deque
 
 R, C=map(int,sys.stdin.readline().split())
