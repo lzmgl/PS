@@ -13,6 +13,7 @@ if n == 0:
     a2 = a0
 if n == 1: a2 = a1
 print(f'{a2:02d}')
+
 # Fibo=[a0,a1]
 # i=2
 # p=-1
