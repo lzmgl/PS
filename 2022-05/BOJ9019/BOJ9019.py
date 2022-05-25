@@ -41,4 +41,3 @@ for _ in range(T):
                 continue
             visited[ans[num][j]]=1
             q.append([ans[num][j], acc+func[j]])
-
