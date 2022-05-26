@@ -26,10 +26,8 @@ mod=1000000007
 #                 data[i][j]= data[i][j]+(a[i][k]*b[k][j])
 #             data[i][j]%=mod
 #     return data
-            
 # matAns=[[1,0], [0,1]]
 # matFibo=[[1,1], [1,0]]
-
 # fibonacci(N)
 # while N>0:
 #     if N%2==1:
