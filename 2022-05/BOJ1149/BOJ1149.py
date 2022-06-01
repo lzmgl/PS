@@ -1,4 +1,5 @@
 # 1149번 RGB거리
+# DP, top down, TOPDOWN
 # https://www.acmicpc.net/problem/1149
 import sys, os
 sys.stdin = open('{}/BOJ1149.txt'.format(os.path.dirname(os.path.realpath(__file__))))
