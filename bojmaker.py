@@ -13,6 +13,7 @@ d=datetime.datetime.utcnow()
 m='{:02d}'.format(d.month)
 month_dir = (f"{d.year}-{m}")
 
+# sys.stdout = open('output.txt','w')
 
 def file_maker(folder_name, problem_input, problem_title,link):
     print(problem_title)
@@ -37,6 +38,7 @@ def bojmaker(problem_number):
     bs_object = BeautifulSoup(html, 'html.parser')
     problem_title = bs_object.find('span', id='problem_title').text
     problem_input = bs_object.find('pre', id='sample-input-1').text
+    # print(bs_object.text)
     folder_name = 'BOJ'+str(problem_number)
 
     for (path, dir, files) in os.walk("./"):
