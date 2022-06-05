@@ -4,7 +4,13 @@ import sys, os
 sys.stdin = open('{}/BOJ2156.txt'.format(os.path.dirname(os.path.realpath(__file__))))
 N=int(sys.stdin.readline())
 data=[int(sys.stdin.readline()) for _ in range(N)]
-dp=[0]*N
+if N==1:
+    print(data[0])
+    exit()
+elif N==2:
+    print(data[0]+data[1])
+    exit()
+dp=[0]*(N+1)
 dp[0]=data[0]
 dp[1]=data[0]+data[1]
 dp[2]=max(dp[2-2]+data[2], data[2-1]+data[2], dp[2-1])
