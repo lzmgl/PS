@@ -10,5 +10,4 @@ dp[1]=data[0]+data[1]
 dp[2]=max(dp[2-2]+data[2], data[2-1]+data[2], dp[2-1])
 for i in range(3, N):
     dp[i]=max(dp[i-2]+data[i], dp[i-3]+data[i-1]+data[i], dp[i-1])
-print(data)
-print(dp)
+print(max(dp))
