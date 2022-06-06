@@ -3,7 +3,6 @@
 # https://www.acmicpc.net/problem/11726
 import sys, os
 sys.stdin = open('{}/BOJ11726.txt'.format(os.path.dirname(os.path.realpath(__file__))))
-from itertools import combinations
 from math import factorial
 N=int(sys.stdin.readline())
 mod=10007
