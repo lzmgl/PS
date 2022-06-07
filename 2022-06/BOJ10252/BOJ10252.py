@@ -1,4 +1,5 @@
 # 10252번 그리드 그래프
+# 사이클
 # https://www.acmicpc.net/problem/10252
 import sys, os
 sys.stdin = open('{}/BOJ10252.txt'.format(os.path.dirname(os.path.realpath(__file__))))
