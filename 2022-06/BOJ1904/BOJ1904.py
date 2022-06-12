@@ -1,4 +1,5 @@
 # 1904번 01타일
+# DP
 # https://www.acmicpc.net/problem/1904
 import sys, os
 sys.stdin = open('{}/BOJ1904.txt'.format(os.path.dirname(os.path.realpath(__file__))))
