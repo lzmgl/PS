@@ -7,8 +7,11 @@ for _ in range(T):
     N=int(sys.stdin.readline())
     data=[list(map(int, sys.stdin.readline().split())) for _ in range(2)]
     if N==1:
-        print(max(data[0], data[1]))
-        exit()
+        print(*max(data[0], data[1]))
+        continue
+    elif N==2:
+        print(max(data[0][1]+data[1][0], data[0][0]+data[1][1]))
+        continue
     dp = [[0] *(N) for _ in range(2)]
     dp[0][0], dp[1][0] = data[0][0], data[1][0]
     for j in range(1, N):
