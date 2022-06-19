@@ -1,5 +1,4 @@
 # 1100번 하얀 칸
-# 구현
 # https://www.acmicpc.net/problem/1100
 import sys, os
 sys.stdin = open('{}/BOJ1100.txt'.format(os.path.dirname(os.path.realpath(__file__))))
