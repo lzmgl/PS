@@ -3,4 +3,4 @@
 import sys, os
 sys.stdin = open('{}/BOJ2420.txt'.format(os.path.dirname(os.path.realpath(__file__))))
 a, b=map(int,sys.stdin.readline().split())
-print(abs(a)+abs(b))
+print(abs(a-b))
