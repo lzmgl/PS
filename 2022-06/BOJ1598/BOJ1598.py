@@ -7,13 +7,4 @@ at=((a-1)%4)
 bt=((b-1)%4)
 ap=((a-1)//4)
 bp=((b-1)//4)
-# if ap==bp:
-#     print(abs(at-bt))
-# if at>0:
-#     ap+=1
-# if bt>0:
-#     bp+=1
-# if at==bt:
-#     print(abs(ap-bp))
-#     exit()
 print(abs(at-bt)+abs(ap-bp))
