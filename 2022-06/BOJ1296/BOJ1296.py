@@ -1,4 +1,5 @@
 # 1296번 팀 이름 정하기
+# 구현
 # https://www.acmicpc.net/problem/1296
 import sys, os
 sys.stdin = open('{}/BOJ1296.txt'.format(os.path.dirname(os.path.realpath(__file__))))
