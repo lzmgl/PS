@@ -28,7 +28,8 @@ N=int(sys.stdin.readline())'''
     sol_py.close()
     
     input_text = open('./{}/{}/{}.txt'.format(month_dir,folder_name,folder_name), 'w', encoding='utf-8')
-    input_text.write(problem_input)
+    input_text.write(problem_input.replace("\n", ""))
+    print(problem_input)
     input_text.close()
     
 def bojmaker(problem_number):
