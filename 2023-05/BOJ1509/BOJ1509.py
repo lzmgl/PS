@@ -2,33 +2,30 @@
 # https://www.acmicpc.net/problem/1509
 import sys, os
 sys.stdin = open('{}/BOJ1509.txt'.format(os.path.dirname(os.path.realpath(__file__))))
-import math
-data=sys.stdin.readline().strip()
-ans=[]
-L=len(data)
 
-dp = [2500 for _ in range(L + 1)]
-dp[-1] = 0
-is_p = [[0 for j in range(L)] for i in range(L)]
-def pelCheck(left, right):
-    ret=is_p[left][right]
-    if not ret:
-        return ret
-    if left==right:
-        is_p[left][right]=1
-        return 1
-    if data[left] == data[right]:
-        if left+1==right:
-            is_p[left][right]=1
-            return pelCheck(left+1, right-1)
+data = sys.stdin.readline().strip()
+n = len(data)
 
-def DP(start):
-    ret=dp[start]
-    if not ret:
-        return ret
-    if start==L:
-        return 0
-    ret=math.inf
-    for i in range(start, L):
-        if pelCheck()
-        
+is_p = [[0 for _ in range(n + 1)] for _ in range(n + 1)]
+dp = [float('inf')] * (n+1)
+dp[0] = 0
+
+for i in range(1, n+1):
+    is_p[i][i] = 1
+
+for i in range(1, n):
+    if data[i-1] == data[i]:
+        is_p[i][i+1] = 1
+
+for i in range(2, n):
+    for j in range(1, n+1-i):
+        if data[j-1] == data[j+i-1] and is_p[j+1][i+j-1] == 1:
+            is_p[j][i+j] = 1
+
+for i in range(1, n+1):
+    dp[i] = min(dp[i], dp[i-1] + 1)
+    
+    for j in range(i+1, n+1):
+        if is_p[i][j] != 0:
+            dp[j] = min(dp[j], dp[i-1] + 1)
+print(dp[n])
