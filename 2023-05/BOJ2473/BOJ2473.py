@@ -3,35 +3,38 @@
 import sys, os
 sys.stdin = open('{}/BOJ2473.txt'.format(os.path.dirname(os.path.realpath(__file__))))
 import math
-N=int(sys.stdin.readline())
-data=list(map(int, sys.stdin.readline().split()))
-data.sort()
-t1, t2, t3 = 0, 0, 0
-_min=math.inf
-target=0
-for i in range(N):
-    for j in range(i+1, N):
-        
-        start=j+1
+def sol():
+    target=0
+    t1, t2, t3 = 0, 0, 0
+    _min=math.inf
+    for i in range(N-2): 
+        start=i+1
         end=N-1
-        while start <= end:
-            mid = (start + end) // 2
-            result = data[i]+data[j]+data[mid]
+        while start < end:
+            result = data[i]+data[start]+data[end]
 
-            if abs(result) <= abs(_min):
-                t1, t2, t3 = data[i], data[j], data[mid]
+            
+            if abs(result) < abs(_min):
+                t1, t2, t3 = data[i], data[start], data[end]
                 _min = result
 
             if  result == target:
-                t1, t2, t3 = data[i], data[j], data[mid]
+                t1, t2, t3 = data[i], data[start], data[end]
                 print(t1, t2, t3)
                 exit()
             elif result < target:
-                start = mid + 1
+                start +=1
             else:
-                end = mid -1
+                end -=1
 
-print(t1,t2,t3)
+    print(t1,t2,t3)
+if __name__ == '__main__':
+    N=int(sys.stdin.readline())
+    data=list(map(int, sys.stdin.readline().split()))
+    data.sort()
+    sol()
+
+
 
 
 # for i in range(N-2):
