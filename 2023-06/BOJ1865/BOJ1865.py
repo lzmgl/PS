@@ -10,21 +10,22 @@ def sol():
         distance = [INF]*(E+3)
         distance[start] = 0
         for v in graph:
-            print(graph[v])
+            print(v,graph[v])
             for item in graph[v]:
-                u=item[0]
-                w=item[1]
-                if v>
+                # u=item[0]
+                # weight=item[1]
+                print(item)
+                # if v>
     for _ in range(TC):
         net=defaultdict(list)
         N, M, W = map(int, sys.stdin.readline().split())
         for j in range(M):
             u, v, w = map(int, sys.stdin.readline().split())
-            net[u].append((v,w))
-            net[v].append((u,w))
+            net[u].append({v:w})
+            net[v].append({u:w})
         for j in range(W):
             S, E, T = map(int, sys.stdin.readline().split())
-            net[S].append((E,-T))
+            net[S].append({E:-T})
         bellman(net, 0)
 
         
