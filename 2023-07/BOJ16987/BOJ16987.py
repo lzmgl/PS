@@ -11,7 +11,7 @@ for _ in range(N):
     list_s.append(s)
     list_w.append(w)
     # data.append([s,w])
-    # 2차원 deepcopy를 slicing으로 안돼서 수정함. how
+    # 2차원 deepcopy를 slicing으로 안돼서 수정함. how?
 answer=0
 
 def egg(idx, eggs):
