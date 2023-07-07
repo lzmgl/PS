@@ -6,87 +6,47 @@ from collections import deque
 dx=[0,0,1,-1]
 dy=[1,-1,0,0]
 def sol():
-    def bfs(w,h,start, data, fire):
-        q=deque(fire)
-        live=False
-        while q:
-            y, x = q.popleft()
-            if data[y][x]=='*':
-                data[y][x]=0
-            for i in range(4):
-                ny, nx = y+dy[i], x+dx[i]
-                if 0<=ny<h and 0<=nx<w:
-                    if data[ny][nx] == '.' or data[y][x] == '@':
-                        data[ny][nx] = data[y][x]+1
-                        q.append((ny,nx))
-        q=deque()
-        q.append(start)
-        while q:
-            y, x = q.popleft()
-            if data[y][x]=='@':
-                data[y][x]=0
-            for i in range(4):
-                ny, nx = y+dy[i], x+dx[i]
-                if 0<=ny<h and 0<=nx<w:
-                    if type(data[ny][nx])==int:
-                        if data[y][x]+1<data[ny][nx]:
-                            data[ny][nx]=data[y][x]+1
-                            q.append([ny, nx])
-                            
-                            if ny==0 or ny==(h-1) or nx==0 or nx==(w-1):
-                                live=True
+    q=deque(fire)
+    while q:
+        y, x = q.popleft()
+        if visited[y][x] == -2: # 이게 불인지 사람인지 체크
+            cnt=-2
+        else:
+            cnt=visited[y][x]
+        for i in range(4):
+            ny, nx = y+dy[i], x+dx[i]
+            if 0<=ny<h and 0<=nx<w:
+                # 불이든 사람이든 갈 수 있는 곳인지 체크
+                if visited[ny][nx]==-1 and (data[ny][nx]=='.' or data[ny][nx]=='@'):
+                    if cnt==-2: #불이면 불번지기
+                        visited[ny][nx]=-2
+                    else: # 사람이면 cnt+1로 가기
+                        visited[ny][nx]=cnt+1
+                    q.append((ny,nx))
+            else: # 건물 경계임 = 통과할수있음
+                if cnt!=-2: #불이 닿은게 아니라면 return (탈출성공)
+                    return cnt+1
+    return "IMPOSSIBLE" # q 끝날때까지 사람이 견물 경계에 못닿은 경우.
 
-                    elif data[ny][nx]=='.':
-                        data[ny][nx]=data[y][x]+1
-                        q.append((ny,nx))
-                        if ny==0 or ny==(h-1) or nx==0 or nx==(w-1):
-                            live=True
-                else:
-                    live=True
-                    return data, live
-        
-        q=deque(fire)
-        while q:
-            y, x = q.popleft()
-            data[y][x]=1000000
-        data[start[0]][start[1]]=1000000
-        return data, live
-
-
+if __name__=='__main__':
     T=int(sys.stdin.readline().strip())
     for _ in range(T):
         data=[]
         fire=[]
         end=False
         w,h=map(int,sys.stdin.readline().split())
+        visited=[[-1]*w for _ in range(h)]
         for i in range(h):
-            tmp=list(sys.stdin.readline().strip())
+            data.append(list(sys.stdin.readline().strip()))
             for j in range(w):
-                if tmp[j]=='@':
-                    if i==0 or i==h-1 or j==0 or j==w-1:
-                        end = True
+                if data[i][j]=='@':
+                    visited[i][j]=0
                     start=(i,j)
-                elif tmp[j]=='*':
+                elif data[i][j]=='*':
+                    visited[i][j]=-2
                     fire.append((i,j))
-            data.append(list(tmp))
-
         if end:
             print(1)
             continue
-
-        
-        data, live = bfs(w,h,start, data, fire)
-        maxN=0
-        for i in range(h):
-            for j in range(w):
-                if i==0 or i==(h-1) or j==0 or j==(w-1):
-                    if type(data[i][j])==int:
-                        maxN=max((data[i][j]%1000000)+1, maxN)
-        
-        if not live:
-            print("IMPOSSIBLE")
-        else:
-            print(maxN)
-
-if __name__=='__main__':
-    sol()
+        fire.append(start) # 불 먼저 다 하고, start 하기
+        print(sol())
