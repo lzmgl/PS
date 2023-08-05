@@ -21,9 +21,8 @@ def sol():
             S, E, T = map(int, sys.stdin.readline().split())
             net[S].append([E, -T])
 
-        def bellman_ford(graph, start):
+        def bellman_ford(graph):
             distances = [10001] * (N + 1)
-            distances[start] = 0
             for i in range(N):
                 for s in net:
                     for d, w in net[s]:
@@ -33,7 +32,7 @@ def sol():
                             distances[d] = distances[s] + w
             return "NO"
 
-        print(bellman_ford(net, 0))
+        print(bellman_ford(net))
 
 
 if __name__ == "__main__":
