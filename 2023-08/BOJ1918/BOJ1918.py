@@ -3,7 +3,7 @@
 import sys, os
 
 sys.stdin = open("{}/BOJ1918.txt".format(os.path.dirname(os.path.realpath(__file__))))
-data = sys.stdin.readline()
+data = sys.stdin.readline().strip()
 depth2 = ["*", "/"]
 depth3 = ["+", "-"]
 
@@ -12,24 +12,26 @@ def oper(data):
     str_ = data
     ans = ""
     stack = []
-    boom = str_.count("(")
-    for i in range(len(str_) - (2 * boom)):
+    for i in range(len(str_)):
         if str_[i] == "(":
-            tmp = str_[::-1]
-            idx = (len(str_) - 1) - tmp.find(")")
-
-            str_ = str_[: i - 1] + oper(str_[i + 1 : idx]) + str_[idx + 1 :]
+            stack.append(str_[i])
         elif str_[i] in depth2:
+            while stack and stack[-1] in depth2:
+                ans += stack.pop()
             stack.append(str_[i])
             pass
         elif str_[i] in depth3:
-            pass
+            while stack and stack[-1] != "(":
+                ans += stack.pop()
+            stack.append(str_[i])
+        elif str_[i] == ")":
+            while stack and stack[-1] != "(":
+                ans += stack.pop()
+            stack.pop()
         else:
             ans += str_[i]
-    if stack:
-        for item in stack:
-            ans += stack.pop()
-
+    while stack:
+        ans += stack.pop()
     return ans
 
 
