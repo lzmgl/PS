@@ -6,37 +6,33 @@ sys.stdin = open("{}/BOJ2568.txt".format(os.path.dirname(os.path.realpath(__file
 
 import bisect
 
-tmp = []
 N = int(sys.stdin.readline())
-for _ in range(N):
-    a, b = map(int, sys.stdin.readline().split())
-    tmp.append((a, b))
-tmp.sort()
-data = [0]
-for item in tmp:
-    data.append(item[1])
+data = {}
+arr = []
+dp = [-1]
+ans = []
+backtrace = []
 
-tmp = []
-ans = [0] * (N + 1)
-dp = [-1000000001]
-for i in range(1, N + 1):
-    if data[i] > dp[-1]:
-        dp.append(data[i])
-        ans[i] = len(dp)
+for i in range(N):
+    a, b = map(int, input().split(" "))
+    data[b] = a
+temp = sorted(data)
+for i in temp:
+    arr.append(data.get(i))
+for i in arr:
+    if i > dp[-1]:
+        dp.append(i)
     else:
-        temp = bisect.bisect_left(dp, data[i])
-        dp[temp] = data[i]
-        ans[i] = temp + 1
-        tmp.append(i)
-
-temp = [0] * len(dp)
-cnt = len(dp)
-
-for i in range(len(data) - 1, -1, -1):
-    if ans[i] == cnt:
-        cnt -= 1
-        temp[cnt] = data[i]
-print(dp)
-print(len(tmp))
-for c in tmp:
-    print(c)
+        dp[bisect.bisect_left(dp, i)] = i
+    ans.append(dp.index(i) + 1)
+lisLength = len(dp)
+for i in range(len(arr) - 1, -1, -1):
+    if ans[i] == lisLength:
+        backtrace.append(arr[i])
+        lisLength -= 1
+print(N - (len(dp) - 1))
+arr.sort()
+for i in backtrace:
+    arr.remove(i)
+for i in arr:
+    print(i)
