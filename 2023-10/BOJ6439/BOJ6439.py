@@ -6,43 +6,45 @@ sys.stdin = open("{}/BOJ6439.txt".format(os.path.dirname(os.path.realpath(__file
 N = int(sys.stdin.readline())
 
 
-def ccw(p1, p2, p3):
-    ans = (
-        p1[0] * p2[1]
-        + p2[0] * p3[1]
-        + p3[0] * p1[1]
-        - (p2[0] * p1[1] + p3[0] * p2[1] + p1[0] * p3[1])
-    )
-    if ans > 0:
+def ccw(a, b, c):
+    v1 = (b[0] - a[0], b[1] - a[1])
+    v2 = (c[0] - a[0], c[1] - a[1])
+    res = v1[0] * v2[1] - v1[1] * v2[0]
+    if res > 0:
         return 1
-    elif ans < 0:
+    elif res < 0:
         return -1
-    return 0
+    else:
+        return 0
 
 
-def det(p1, p2, p3, p4):
-    ccw1 = ccw(p1, p2, p3)
-    ccw2 = ccw(p1, p2, p4)
-    ccw3 = ccw(p3, p4, p1)
-    ccw4 = ccw(p3, p4, p2)
+def check(w, z, x, y):
+    a = (x[0], x[1])
+    b = (y[0], y[1])
 
-    if ccw1 == 0 and ccw2 == 0 and ccw3 == 0 and ccw4 == 0:
-        if (
-            (min(p1[0], p2[0]) > max(p3[0], p4[0]))
-            or (min(p1[1], p2[1]) > max(p3[1], p4[1]))
-            or (min(p3[0], p3[0]) > max(p1[0], p2[0]))
-            or (min(p3[1], p4[1]) > max(p1[1], p2[1]))
-        ):
-            return False
+    r1 = (w[0], w[1])
+    r2 = (z[0], z[1])
 
-    if ccw1 * ccw2 <= 0 and ccw3 * ccw4 <= 0:
-        return True
-    return False
+    ccwA = ccw(a, b, r1) * ccw(a, b, r2)
+    ccwB = ccw(r1, r2, a) * ccw(r1, r2, b)
+
+    if ccwA == 0 and ccwB == 0:
+        if r1[0] == r2[0]:
+            if max(a[1], b[1]) < min(r1[1], r2[1]) or max(r1[1], r2[1]) < min(
+                a[1], b[1]
+            ):
+                return 0
+        elif r1[1] == r2[1]:
+            if max(a[0], b[0]) < min(r1[0], r2[0]) or max(r1[0], r2[0]) < min(
+                a[0], b[0]
+            ):
+                return 0
+
+    return ccwA <= 0 and ccwB <= 0
 
 
 def determine(data):
     x1, y1, x2, y2 = data[:4]  # line
-
     minx = min(x1, x2)
     miny = min(y1, y2)
     maxx = max(x1, x2)
@@ -61,16 +63,16 @@ def determine(data):
     r3 = (xr, yt)
     r4 = (xr, yb)
 
-    # print(p1, p2, r1, r2, r3, r4)
+    if xl <= minx and maxx <= xr and yb <= miny and maxy <= yt:
+        return "T"
     if (
-        det(r1, r2, p1, p2)
-        or det(r1, r3, p1, p2)
-        or det(r3, r4, p1, p2)
-        or det(r2, r4, p1, p2)
+        check(r1, r2, p1, p2)
+        or check(r1, r3, p1, p2)
+        or check(r3, r4, p1, p2)
+        or check(r2, r4, p1, p2)
     ):
         return "T"
-    if minx <= xl and maxx <= xr and miny <= yb and yt <= maxy:
-        return "T"
+
     return "F"
 
 
