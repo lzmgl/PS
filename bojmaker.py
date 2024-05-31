@@ -35,7 +35,10 @@ N=int(sys.stdin.readline())'''
 def bojmaker(problem_number):
     url = 'https://www.acmicpc.net/problem/'
     link=url+problem_number
-    html = requests.get('{}{}'.format(url, problem_number), headers={'User-Agent': 'Mozilla/5.0'}).content
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36"
+    }
+    html = requests.get('{}{}'.format(url, problem_number), headers=headers).content
     bs_object = BeautifulSoup(html, 'html.parser')
     problem_title = bs_object.find('span', id='problem_title').text
     problem_input = bs_object.find('pre', id='sample-input-1').text
