@@ -1,4 +1,4 @@
-# 14569번 시간표 짜기
+# 14569번 시간표 짜기 비트마스킹
 # https://www.acmicpc.net/problem/14569
 import sys, os
 
